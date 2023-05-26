@@ -3,12 +3,14 @@ package com.example.test_task
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.test_task.FragmentNames.Companion.FIRST_FRAGMENT
 import org.json.JSONArray
 
 
 class ViewModelTest : ViewModel() {
     // JSON-строка с данными о людях
-    private val jsonString = "[{\"name\":\"Misha\", \"age\": \"20\"}, {\"name\":\"Dmitry\", \"age\": \"21\"}, {\"name\":\"Elena\", \"age\": \"18\"}, {\"name\":\"Pavel\", \"age\": \"25\"}]"
+    private val jsonString =
+        "[{\"name\":\"Misha\", \"age\": \"20\"}, {\"name\":\"Dmitry\", \"age\": \"21\"}, {\"name\":\"Elena\", \"age\": \"18\"}, {\"name\":\"Pavel\", \"age\": \"25\"}]"
 
     // Приватное поле, содержащее список людей
     private val _people = MutableLiveData<List<Human>>()
@@ -27,6 +29,9 @@ class ViewModelTest : ViewModel() {
 
     // LiveData для хранения второго числа
     val number2 = MutableLiveData<Int>()
+
+    // Переменная для хранения текущего фрагмента
+    var currentFragment = FIRST_FRAGMENT
 
     // Метод для получения JSON данных
     fun getJson() {
@@ -56,5 +61,12 @@ class ViewModelTest : ViewModel() {
         // Обновление списка людей в LiveData
         _people.postValue(humanList)
         status.value = Status.Successful
+    }
+
+    //Вычисление суммы и присвоение чисел
+    fun setSumAndNumbers(number1: Int, number2: Int) {
+        this.number1.value = number1
+        this.number2.value = number2
+        sum = number1 + number2
     }
 }

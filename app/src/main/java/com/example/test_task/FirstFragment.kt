@@ -37,14 +37,10 @@ class FirstFragment : Fragment() {
         }
 
         // Обработчик нажатия на кнопку "Второй экран"
-        binding.btnSecondActivity.setOnClickListener {
+        binding.btnSecondFragment.setOnClickListener {
             if (binding.etNum1.text.isNotEmpty() || binding.etNum2.text.isNotEmpty()) {
-                // Сохранение введенных значений в ViewModel
-                viewModel.number1.value = binding.etNum1.text.toString().toInt()
-                viewModel.number2.value = binding.etNum2.text.toString().toInt()
-
-                // Вычисление суммы и сохранение ее в ViewModel
-                viewModel.sum = viewModel.number1.value!! + viewModel.number2.value!!
+                // Вычисление суммы, введенных пользователем чисел
+                viewModel.setSumAndNumbers(binding.etNum1.text.toString().toInt(), binding.etNum2.text.toString().toInt())
 
                 // Переход на второй фрагмент
                 (activity as MainActivity).showSecondFragment()
