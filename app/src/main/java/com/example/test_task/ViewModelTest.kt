@@ -44,6 +44,7 @@ class ViewModelTest : ViewModel() {
         // Создание списка людей
         val humanList = mutableListOf<Human>()
 
+
         // Итерация по элементам JSONArray
         for (i in 0 until jsonArray.length()) {
             // Получение объекта JSON
