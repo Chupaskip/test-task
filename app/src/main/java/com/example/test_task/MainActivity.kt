@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel = ViewModelProvider(this)[ViewModelTest::class.java]
-
         if (viewModel.currentFragment == FIRST_FRAGMENT) {
             showFirstFragment()
         } else {
@@ -56,5 +55,9 @@ class MainActivity : AppCompatActivity() {
         } else {
             onBackPressedDispatcher.onBackPressed() // Вызываем обработку нажатия кнопки "назад" по умолчанию
         }
+    }
+
+    fun testFun(smth: String) {
+        val value = smth
     }
 }
