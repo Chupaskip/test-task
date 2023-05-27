@@ -60,4 +60,8 @@ class MainActivity : AppCompatActivity() {
     fun testFun(smth: String) {
         val value = smth
     }
+
+    fun anotherFun(){
+        val nothing = "Nothing"
+    }
 }
